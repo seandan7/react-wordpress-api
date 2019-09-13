@@ -25,8 +25,8 @@ class App extends Component {
 
   }
   triggerSinglePostState(ID) {
-    debugger;
-    console.log("Clicked " + ID)
+    console.log("TEST" + ID);
+    
   }
   render() {
     if (this.state.isOpen) {

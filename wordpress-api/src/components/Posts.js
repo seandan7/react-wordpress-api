@@ -3,32 +3,27 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-class Posts extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-  
-  
-    render() {
-        return (
-            <div className="py-5">
+const Posts = props => {
+
+
+    return (
+        <div className="py-5">
             <center><h1>Blog Posts</h1></center>
             <Row className="mt-5">
-            {this.props.posts.map((post, index) => (
-            <Col md={6} onClick={this.props.goToPost} className="mt-3 mt-md-0" id={post.id} key={index}>
-                <div className="card" >
-                    <div className="card-body">
-                        <img alt={post.title.rendered} className="w-100" />
-                        <h5 className="mt-3 card-title">{post.title.rendered}</h5>
-                        <h6 className="card-subtitle mb-2 text-muted"><p dangerouslySetInnerHTML={{__html: post.excerpt.rendered}}></p></h6>
-                    </div>
-                </div>
-            </Col>
-            ))}
+                {props.posts.map((post, index) => (
+                    <Col md={6} onClick={props.goToPost} className="mt-3 mt-md-0" id={post.id} key={index}>
+                        <div className="card" >
+                            <div className="card-body">
+                                <img alt={post.title.rendered} className="w-100" />
+                                <h5 className="mt-3 card-title">{post.title.rendered}</h5>
+                                <h6 className="card-subtitle mb-2 text-muted"><p dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}></p></h6>
+                            </div>
+                        </div>
+                    </Col>
+                ))}
             </Row>
-          </div>
-        )
-    }
+        </div>
+    )
 }
 
 /*const Posts = ({props, posts}) => {
