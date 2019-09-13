@@ -14,6 +14,7 @@ class App extends Component {
       current: null,
       dataRoute: "https://www.websiteonwheels.com/wp-json/wp/v2/posts"
     }
+    this.triggerSinglePostState = this.triggerSinglePostState.bind(this);
   }
   componentDidMount() {
     fetch(this.state.dataRoute)
@@ -24,8 +25,11 @@ class App extends Component {
       .catch(console.log)
 
   }
-  triggerSinglePostState(ID) {
-    console.log("TEST" + ID);
+  triggerSinglePostState(post) {
+   this.setState({
+      isOpen: true,
+      current: post.currentTarget.id
+    });
     
   }
   render() {
